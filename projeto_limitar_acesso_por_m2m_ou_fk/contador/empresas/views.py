@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from empresas.models import Empresa
 
 
-class ListaDeEmpresas(UsuarioPrecisaEstarLogado,ListView):
+class ListaDeEmpresas(ListView,UsuarioPrecisaEstarLogado):
     template_name = "empresa/lista_de_empresas.html"
     model = Empresa
     paginate_by= 15
