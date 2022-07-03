@@ -11,6 +11,14 @@ class Empresa(models.Model):
     """
     Classe que armazena info sobre a empresa e associacao com os operadores..
     """
+    class Meta:
+        verbose_name = _("Empresa")
+        verbose_name_plural = _("Empresas")
+
+    def __str__(self):
+        return self.nome_da_empresa
+
+
     logotipo = models.ImageField(upload_to="icones/empresas")
     nome_da_empresa = models.CharField(max_length=512, verbose_name=_("Nome da empresa"), blank=True, default="Empresa")
     operadores = models.ManyToManyField(
@@ -21,6 +29,6 @@ class Empresa(models.Model):
     )
 
     @property
-    def total_operadores(self):
+    def total_operadores(self):        
         return self.operadores.count()
 

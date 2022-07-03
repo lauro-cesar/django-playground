@@ -25,13 +25,14 @@ SECRET_KEY = 'django-insecure-y$)_jc(t1j+2hx+=-65&0qjgv9oh4f(-hsx^n6$ip2kr18812%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'empresas',
+    'project_tools.apps.ProjectToolsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,7 +120,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 MEDIA_URL = "media/"
+
+if DEBUG:
+    MEDIA_URL = "http://localhost:8888/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

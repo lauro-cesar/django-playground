@@ -8,7 +8,7 @@ class EmpresaAdmin(admin.ModelAdmin):
     save_on_top = True 
     filter_horizontal = ['operadores']
     search_fields = ['operadores']
-    list_display = ['id','total_operadores']
+    list_display = ['id','total_operadores','logotipo_url']
 
 
 
